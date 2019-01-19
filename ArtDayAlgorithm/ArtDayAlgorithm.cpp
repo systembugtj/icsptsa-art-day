@@ -203,7 +203,7 @@ void printInputOutput(
 
 		for (int period = 0; period < numPeriods; period++)
 		{
-			classOutput << "P" << period << "(" << classSchedule[classI][period].size() << " students),";
+			classOutput << "P" << period + 1 << "(" << classSchedule[classI][period].size() << " students),";
 
 			for (size_t stuI = 0; stuI < classSchedule[classI][period].size(); stuI++)
 			{
