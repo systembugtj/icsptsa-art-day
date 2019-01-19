@@ -26,7 +26,8 @@ struct ClassInfo
 {
 	int type,
 		size;
-	string name;
+	string name,
+		room;
 
 	// type 1: regular class, type 2: food class, type 3: movement class
 };
@@ -71,18 +72,20 @@ bool compareEmail(string account, string email)
 
 void initializeClasses(vector<ClassInfo> &classes)
 {
-	CSVReader<3> in("input-class.csv");
+	CSVReader<4> in("input-class.csv");
 	in.read_header(ignore_no_column,
 		"Type",
 		"Size",
-		"Name");
-	int type, size; string name;
+		"Name",
+		"Room");
+	int type, size; string name, room;
 
-	while (in.read_row( type, size, name ))
+	while (in.read_row( type, size, name, room ))
 	{ classes.push_back({
 		type,
 		size,
-		name }); }
+		name,
+		room }); }
 
 	return;
 }
@@ -199,7 +202,7 @@ void printInputOutput(
 
 	for (size_t classI = 0; classI < classSchedule.size(); classI++)
 	{
-		classOutput << classes[classI].name << ":\n";
+		classOutput << classes[classI].name << " (" << classes[classI].room << "):\n";
 
 		for (int period = 0; period < numPeriods; period++)
 		{
@@ -228,7 +231,7 @@ void printInputOutput(
 
 		for (int period = 0; period < numPeriods; period++)
 		{
-			if (studentSchedule[stuI][period] >= 0) { studentOutput << classes[studentSchedule[stuI][period]].name << ","; }
+			if (studentSchedule[stuI][period] >= 0) { studentOutput << classes[studentSchedule[stuI][period]].name << " (" << classes[studentSchedule[stuI][period]].room << "),"; }
 			else { studentOutput << "NO CLASS,"; }
 		}
 
