@@ -1,3 +1,0 @@
-/Volumes/DEV/ws/prj/ics/ArtDay/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Volumes/DEV/ws/prj/ics/ArtDay/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Volumes/DEV/ws/prj/ics/ArtDay/cmake-build-debug/CMakeFiles/ArtDay.dir
