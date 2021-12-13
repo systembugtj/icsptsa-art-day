@@ -2,41 +2,24 @@ import logo from "./logo.svg";
 import "./App.scss";
 import Container from "react-bootstrap/Container";
 import NavBar from "./components/NavBar/NavBar";
-import { MemoryRouter, Routes, Route } from "react-router-dom";
 
-const Home = () => <span>Home</span>;
+import PropTypes from "prop-types";
 
-const About = () => <span>About</span>;
+import { Outlet } from "react-router-dom";
 
-const Users = () => <span>Users</span>;
-
-function App() {
+function App({ history }) {
     return (
-        <MemoryRouter>
-            <Container className="App p-3">
-                <Routes>
-                    <Route path="/about" component={About}></Route>
-                    <Route path="/users" component={Users}></Route>
-                    <Route path="/" component={Home}></Route>
-                </Routes>
+        <div>
+            <Container className="p-3">
                 <NavBar />
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <p>
-                        Edit <code>src/App.js</code> and save to reload.
-                    </p>
-                    <a
-                        className="App-link"
-                        href="https://reactjs.org"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Learn React
-                    </a>
-                </header>
             </Container>
-        </MemoryRouter>
+            <Outlet />
+        </div>
     );
 }
+
+App.propTypes = {
+    history: PropTypes.object,
+};
 
 export default App;
