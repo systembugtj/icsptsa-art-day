@@ -2,23 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
 import App from "./App";
-import { Provider } from "react-redux";
-import configureStore, { history } from "./configureStore";
 import reportWebVitals from "./reportWebVitals";
-import { ReduxRouter } from "@lagunovsky/redux-react-router";
-import AppRoutes from "./routes";
-
-const store = configureStore({});
 
 ReactDOM.render(
     <React.StrictMode>
-        <Provider store={store}>
-            <ReduxRouter
-                history={history}
-                store={store}
-                children={<AppRoutes />}
-            />
-        </Provider>
+        <App />
     </React.StrictMode>,
     document.getElementById("root")
 );

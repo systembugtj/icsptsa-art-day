@@ -9,7 +9,7 @@ import { LinkContainer } from "react-router-bootstrap";
 const NavBar = () => (
     <div className={styles.NavBar} data-testid="NavBar">
         <ButtonToolbar className="custom-btn-toolbar">
-            <LinkContainer to="/">
+            <LinkContainer to="/home">
                 <Button>Home</Button>
             </LinkContainer>
             <LinkContainer to="/about">
